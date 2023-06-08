@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:transcard/page/receipt.dart';
 import 'package:transcard/page/user_information_edit_screen.dart';
 import 'package:transcard/provider/auth_provider.dart';
 import 'package:transcard/screens/welcome_screen.dart';
@@ -117,7 +118,13 @@ class Profile extends StatelessWidget {
                           width: double.infinity,
                           height: 75,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                      const Receipt()));
+                            },
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.black,
                               backgroundColor: const Color(0xffeff1f3),

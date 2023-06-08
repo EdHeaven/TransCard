@@ -2,22 +2,29 @@
 class Assets {
   Assets._();
 
-  static const String assets11 = 'assets/11.png';
+  static const String assetsCard1 = 'assets/card1.png';
+  static const String assetsCard2 = 'assets/card2.png';
+  static const String assetsCard3 = 'assets/card3.png';
   static const String assetsHolo = 'assets/Holo.png';
   static const String assetsIcBus = 'assets/ic-bus.png';
   static const String assetsIcTrolleybus = 'assets/ic-trolleybus.png';
   static const String assetsLgotnayaCard = 'assets/lgotnaya_card.png';
   static const String assetsMir = 'assets/mir.png';
+  static const String assetsNoCard = 'assets/no_card.png';
   static const String assetsStandartCard = 'assets/standart_card.png';
   static const String assetsStudentCart = 'assets/student_cart.png';
   static const String assetsTrans = 'assets/trans.png';
-  static const String transCard1AssetsHolo = 'assets/Holo.png';
-  static const String transCard1AssetsIcBus = 'assets/ic-bus.png';
-  static const String transCard1AssetsIcTrolleybus = 'assets/ic-trolleybus.png';
-  static const String transCard1AssetsLgotnayaCard = 'assets/lgotnaya_card.png';
-  static const String transCard1AssetsMir = 'assets/mir.png';
-  static const String transCard1AssetsStandartCard = 'assets/standart_card.png';
-  static const String transCard1AssetsStudentCart = 'assets/student_cart.png';
-  static const String transCard1AssetsTrans = 'assets/trans.png';
+  static const String transCardAssetsCard1 = 'assets/card1.png';
+  static const String transCardAssetsCard2 = 'assets/card2.png';
+  static const String transCardAssetsCard3 = 'assets/card3.png';
+  static const String transCardAssetsHolo = 'assets/Holo.png';
+  static const String transCardAssetsIcBus = 'assets/ic-bus.png';
+  static const String transCardAssetsIcTrolleybus = 'assets/ic-trolleybus.png';
+  static const String transCardAssetsLgotnayaCard = 'assets/lgotnaya_card.png';
+  static const String transCardAssetsMir = 'assets/mir.png';
+  static const String transCardAssetsNoCard = 'assets/no_card.png';
+  static const String transCardAssetsStandartCard = 'assets/standart_card.png';
+  static const String transCardAssetsStudentCart = 'assets/student_cart.png';
+  static const String transCardAssetsTrans = 'assets/trans.png';
 
 }

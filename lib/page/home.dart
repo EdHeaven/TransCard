@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:camera/camera.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:transcard/page/notifications.dart';
 
 import '../data/card_data.dart';
 import '../provider/auth_provider.dart';
@@ -84,41 +85,83 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(context: context,
+                              builder: (BuildContext context){
+                            return Notifications();
+                              });
+                        },
                         icon: const Icon(
                           Icons.notifications,
                           size: 30,
                         ))
                   ],
                 ),
+
                 Padding(
                   padding: const EdgeInsets.only(top: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 200,
-                        child: ListView.separated(
-                            physics: ClampingScrollPhysics(),
-                            separatorBuilder: (context, index) {
-                              return SizedBox(
-                                width: 10,
-                              );
-                            },
-                            itemCount: myCards.length,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return MyCard(
-                                card: myCards[index],
-                              );
-                            }),
+                  child: Container(
+                    // margin: EdgeInsets.symmetric(horizontal: 20),
+                    width: double.infinity,
+                    height: 60,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: const Color(0xff133bc9),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                       ),
-                    ],
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(Icons.add_circle_rounded, color: Colors.white, size: 45,),
+                          Flexible(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: Text("Выпустить виртуальную транспортную карту",
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
+
+                // Padding(
+                //   padding: const EdgeInsets.only(top: 30),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       Container(
+                //         height: 200,
+                //         child: ListView.separated(
+                //             physics: ClampingScrollPhysics(),
+                //             separatorBuilder: (context, index) {
+                //               return SizedBox(
+                //                 width: 10,
+                //               );
+                //             },
+                //             itemCount: myCards.length,
+                //             shrinkWrap: true,
+                //             scrollDirection: Axis.horizontal,
+                //             itemBuilder: (context, index) {
+                //               return MyCard(
+                //                 card: myCards[index],
+                //               );
+                //             }),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 40),
+                  padding: const EdgeInsets.symmetric(vertical: 30),
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: 40,
@@ -146,7 +189,7 @@ class _HomeState extends State<Home> {
                     options: CarouselOptions(
                         height: 150,
                         viewportFraction: 1,
-                        // autoPlay: true,
+                        autoPlay: true,
                         autoPlayInterval: Duration(seconds: 5),
                         autoPlayAnimationDuration: Duration(seconds: 2)),
                     items: [
@@ -398,6 +441,9 @@ class _HomeState extends State<Home> {
                     child: ElevatedButton(
                       onPressed: () {
                         showModalBottomSheet(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(20))),
                             context: context,
                             builder: (BuildContext context) {
                               return Container(
@@ -660,6 +706,9 @@ class _HomeState extends State<Home> {
                     child: ElevatedButton(
                       onPressed: () {
                         showModalBottomSheet(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(20))),
                             context: context,
                             builder: (BuildContext context) {
                               return Container(
@@ -922,6 +971,9 @@ class _HomeState extends State<Home> {
                     child: ElevatedButton(
                       onPressed: () {
                         showModalBottomSheet(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(20))),
                             context: context,
                             builder: (BuildContext context) {
                               return Container(

@@ -50,7 +50,7 @@ class _NavState extends State<Nav> {
               color: Color(0xffa29f9d),
             ),
             activeIcon: Icon(Icons.credit_card_rounded),
-            label: 'Карты',
+            label: 'Карта',
           ),
           BottomNavigationBarItem(
             icon: Icon(

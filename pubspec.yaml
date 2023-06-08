@@ -84,6 +84,7 @@ flutter:
     - assets/card1.png
     - assets/card2.png
     - assets/card3.png
+    - assets/no_card.png
 
 
   # To add assets to your application, add an assets section, like this:

@@ -21,10 +21,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
     return Container(
       decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/Holo.png"), fit: BoxFit.cover
-        )
-      ),
+          image: DecorationImage(
+              image: AssetImage("assets/Holo.png"), fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
@@ -36,7 +34,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 children: [
                   Image.asset(
                     "assets/trans.png",
-                    height: 500,
+                    height: 300,
                   ),
                   // const SizedBox(height: 40),
 
@@ -45,54 +43,45 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           fontSize: 36,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-
-                  // const Text(
-                  //   "Экономить \nденьги, Легко",
-                  //   style: TextStyle(
-                  //     fontSize: 22,
-                  //     fontWeight: FontWeight.bold,
-                  //   ),
-                  // ),
-                  // const SizedBox(height: 10),
-                  // Text("Никогда не было лучшего времени, чем сейчас, чтобы начать.",
-                  //     style: GoogleFonts.montserrat(
-                  //         fontSize: 14,
-                  //         fontWeight: FontWeight.bold,
-                  //         color: Colors.white)),
-                  // const Text(
-                  //   "Никогда не было лучшего времени, чем сейчас, чтобы начать.",
-                  //   style: TextStyle(
-                  //     fontSize: 14,
-                  //     color: Colors.black38,
-                  //     fontWeight: FontWeight.bold,
-                  //   ),
-                  // ),
-                  // const SizedBox(height: 20),
-                  // custom button
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: CustomButton(
-                      onPressed: () async {
-                        if (ap.isSignedIn == true) {
-                          await ap.getDataFromSP().whenComplete(
-                                () => Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const Nav(),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 60, bottom: 120),
+                    child: Container(
+                      // margin: EdgeInsets.symmetric(horizontal: 20),
+                      width: double.infinity,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          if (ap.isSignedIn == true) {
+                            await ap.getDataFromSP().whenComplete(
+                                  () => Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Nav(),
+                                    ),
                                   ),
-                                ),
-                              );
-                        } else {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const RegisterScreen(),
-                            ),
-                          );
-                        }
-                      },
-                      text: "Поехали",
+                                );
+                          } else {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const RegisterScreen(),
+                              ),
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: const Color(0xff2196f3),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        child: Text("Поехали",
+                            style: GoogleFonts.montserrat(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            )),
+                      ),
                     ),
                   )
                 ],
