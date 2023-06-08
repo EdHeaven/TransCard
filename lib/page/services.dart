@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:transcard/constants/app_textstyle.dart';
 import 'package:transcard/constants/color_constants.dart';
 import 'package:transcard/data/card_data.dart';
+import 'package:transcard/page/notifications.dart';
 import 'package:transcard/widgets/my_card.dart';
 
 class Services extends StatelessWidget {
@@ -27,7 +28,12 @@ class Services extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: Colors.black)),
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(context: context,
+                              builder: (BuildContext context){
+                                return Notifications();
+                              });
+                        },
                         icon: const Icon(
                           Icons.notifications,
                           size: 30,

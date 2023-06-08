@@ -55,6 +55,15 @@ class _HomeState extends State<Home> {
   //   });
   // }
 
+  bool showCard = false;
+
+  void toggleContainer() {
+    setState(() {
+      showCard = !showCard;
+    });
+    Navigator.of(context).pop();
+  }
+
   @override
   Widget build(BuildContext context) {
     final ap = Provider.of<AuthProvider>(context, listen: false);
@@ -86,9 +95,10 @@ class _HomeState extends State<Home> {
                     ),
                     IconButton(
                         onPressed: () {
-                          showDialog(context: context,
-                              builder: (BuildContext context){
-                            return Notifications();
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Notifications();
                               });
                         },
                         icon: const Icon(
@@ -100,37 +110,66 @@ class _HomeState extends State<Home> {
 
                 Padding(
                   padding: const EdgeInsets.only(top: 30),
-                  child: Container(
-                    // margin: EdgeInsets.symmetric(horizontal: 20),
-                    width: double.infinity,
-                    height: 60,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: const Color(0xff133bc9),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(Icons.add_circle_rounded, color: Colors.white, size: 45,),
-                          Flexible(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 15),
-                              child: Text("Выпустить виртуальную транспортную карту",
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.bold,
-                                  )),
+                  child: showCard
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 200,
+                              child: ListView.separated(
+                                  physics: ClampingScrollPhysics(),
+                                  separatorBuilder: (context, index) {
+                                    return SizedBox(
+                                      width: 10,
+                                    );
+                                  },
+                                  itemCount: myCards.length,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return MyCard(
+                                      card: myCards[index],
+                                    );
+                                  }),
+                            ),
+                          ],
+                        )
+                      : Container(
+                          // margin: EdgeInsets.symmetric(horizontal: 20),
+                          width: double.infinity,
+                          height: 60,
+                          child: ElevatedButton(
+                            onPressed: toggleContainer,
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white,
+                              backgroundColor: const Color(0xff133bc9),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Icon(
+                                  Icons.add_circle_rounded,
+                                  color: Colors.white,
+                                  size: 45,
+                                ),
+                                Flexible(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 15),
+                                    child: Text(
+                                        "Выпустить виртуальную транспортную карту",
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
+                        ),
                 ),
 
                 // Padding(
@@ -199,7 +238,7 @@ class _HomeState extends State<Home> {
                         "text":
                             "Стандартная транспортная карта которая позволяет пользоваться нашим сервисом и подходит всем",
                         "description":
-                            "Стоимость выпуска и активации карты составляет 100 рублей. Карта действительна в течение 1 года. По истечении срока действия карту можно продлить."
+                            "Стоимость выпуска и активации карты составляет 100 рублей. Карта действительна в течение 1 года. По истечении срока действия карту можно продлить.",
                       },
                       {
                         "image": "assets/student_cart.png",
@@ -278,9 +317,11 @@ class _HomeState extends State<Home> {
                                                     width: double.infinity,
                                                     height: 60,
                                                     child: ElevatedButton(
-                                                      onPressed: () {
-                                                        // Действие при нажатии на кнопку
-                                                      },
+                                                      onPressed: toggleContainer,
+                                                      // () {
+                                                      //
+                                                      //   // Действие при нажатии на кнопку
+                                                      // },
                                                       style: ElevatedButton
                                                           .styleFrom(
                                                         foregroundColor:

@@ -16,7 +16,7 @@ class MyCard extends StatelessWidget {
           color: card.cardColor,
           borderRadius: BorderRadius.circular(20),
           image: const DecorationImage(
-              fit: BoxFit.cover, image: AssetImage('assets/card1.png'))),
+              fit: BoxFit.cover, image: AssetImage('assets/card3.png'))),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,7 +33,7 @@ class MyCard extends StatelessWidget {
                     style: ApptextStyle.MY_CARD_SUBTITLE,
                   ),
                   Text(
-                    "Студенческая карта",
+                    "Транспортная карта",
                     style: ApptextStyle.MY_CARD_TITLE,
                   ),
                 ],
